@@ -30,17 +30,17 @@ with gr.Blocks(title="Dynamic-QR",css="#heading{background-color:#32a8a8}") as d
         text_button = gr.Button("Generate QR Code",elem_id="generate_qr")
 
     with gr.Tab("Output"), gr.Row():
-        image_output = gr.Image(label="QR Code").style(height=350,width=500)
+        image_output = gr.Image(label="QR Code")
 
     with gr.Tab("View Demo"):
         with gr.Row():
             tut_button=gr.Button("View Demo Usage")
-            demo_video = gr.Image(label="Demo").style(height=350,width=500)
+            demo_video = gr.Image(label="Demo")
 
         gr.Label("Scan The Code For Demo Tutorial")
 
     tut_button.click(tutorial,inputs=[],outputs=[demo_video])
     text_button.click(generate_qr, inputs=[text_input,color_input], outputs=[status,image_output])
-    
+
 demo.launch()
 
